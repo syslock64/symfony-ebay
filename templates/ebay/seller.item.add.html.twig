@@ -1,0 +1,103 @@
+<div class="container" style="width:50%">
+    <form action="AddItem.php" method="post" enctype="multipart/form-data">
+        <div class="row">
+            <div class="col-md-6">Primary Category</div>
+            <div class="col-md-6">
+                <select class="form-control" name="primaryCategory">
+                    {#<?php $catId = $_POST['category'];#}
+	        {#if(is_array($catId)):#}
+	        {#foreach($catId as $val){#}
+					{#$arr = explode('-', $val);#}
+					{#echo '<option value="'.$arr[0].'">'.$arr[1].'</option>';#}
+                    {#}#}
+                    {#else:#}
+                    {#$arr = explode('-', $catId);#}
+                    {#echo '<option value="'.$arr[0].'">'.$arr[1].'</option>';#}
+                    {#endif;#}
+                    {#?>#}
+                </select>
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">Item Title</div>
+            {#<?php#}
+		{#if(isset($_POST['item'])){#}
+			{#$item = $_POST['item'];#}
+			{#$arr = explode(':', $item);#}
+			{#$id = $arr[0];#}
+			{#$title = $arr[1];#}
+		{#}#}
+		{#else{#}
+			{#$id = $title = '';#}
+		{#}#}
+		{#?>#}
+            <div class="col-md-6"><input class="form-control" type="text" name="itemTitle" value="{{ title }}" size="49"></div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">Item Description</div>
+            <div class="col-md-6"><textarea class="form-control" name="itemDescription" rows="10" cols="50" value="Item Deccription : DO NOT BID - This will incur prod listing fees"></textarea></div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">Condition</div>
+            <div class="col-md-6">
+                <select class="form-control" id="itemCondition" name="itemCondition" title="Condition">
+                    <option value="1000">New</option>
+                    <option value="3000">Used</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">Listing Type</div>
+            <div class="col-md-6">
+                <select class="form-control" name="listingType">
+                    <option value="FixedPriceItem">Fixed Price Item</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">Listing Duration</div>
+            <div class="col-md-6">
+                <select class="form-control" name="listingDuration">
+                    <option value="Days_30">30 days</option>
+                </select>
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">Price</div>
+            <div class="col-md-6"><input class="form-control" type="text" name="startPrice"></div>
+        </div>
+
+        <!-- <br><div class="row">
+            <div class="col-md-6">BuyItNowPrice</div>
+            <div class="col-md-6"><input class="form-control" type="text" name="buyItNowPrice" value=""></div>
+        </div> -->
+
+        <div class="row">
+            <div class="col-md-6">Pictures (max 12 photos)</div>
+            <div class="col-md-6">
+                <input class="form-control" name="image_file[]" id="imageInput" onchange="check()" type="file" multiple="true" />
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">Searched Keyword</div>
+            <div class="col-md-6"><input class="form-control" type="text" name="searched_keyword" readonly="readonly" value="{{ search_keyword }}"></div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="pull-left"><input class="form-control btn btn-primary" type="submit" name="submit" value="AddItem"></div>
+                <div class="pull-right">
+                    <a role="button" class="btn btn-default" href="index.php">Back</a></div>
+            </div>
+        </div>
+    </form>
+</div>
